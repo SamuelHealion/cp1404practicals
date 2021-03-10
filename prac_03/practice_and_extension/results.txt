@@ -1,0 +1,6 @@
+49 is Bad
+8 is Bad
+6 is Bad
+85 is Passable
+96 is Excellent
+50 is Passable
