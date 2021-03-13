@@ -14,7 +14,7 @@ print("Finished.")
 
 """
 1. When will a ValueError occur?
-ValueError will occur when the user attempts to input anything that isn't a number
+ValueError will occur when the user attempts to input anything that isn't an integer
 
 2. When will a ZeroDivisionError occur?
 When the user enters a 0 for the denominator
