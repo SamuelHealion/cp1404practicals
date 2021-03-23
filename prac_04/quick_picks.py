@@ -10,7 +10,7 @@ NUMBERS_IN_QUICK_PICKS = 6
 
 
 def main():
-    """Generates a set of Quick Picks (random numbers) based on how many the user wants"""
+    """Generates a set of Quick Picks (random numbers) based on how many the user wants."""
     valid_input = False
     while not valid_input:
         try:
@@ -28,7 +28,7 @@ def main():
 
 def generate_quick_picks():
     """Generates a set of quick picks based off of NUMBERS_IN_QUICK_PICKS
-    and then sorts them before returning the list """
+    and then sorts them before returning the list."""
     quick_picks = []
     for i in range(NUMBERS_IN_QUICK_PICKS):
         number = random.randint(MINIMUM, MAXIMUM)

@@ -18,7 +18,7 @@ def main():
 
 
 def print_report(incomes, number_of_months):
-    """Prints an income report formatted in a legible layout with the cumulative total of incomes"""
+    """Prints an income report formatted in a legible layout with the cumulative total of incomes."""
     print("\nIncome Report\n-------------")
     total = 0
     for month in range(0, number_of_months):
