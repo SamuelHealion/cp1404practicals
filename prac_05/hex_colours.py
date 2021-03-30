@@ -12,14 +12,14 @@ HEX_COLOURS = {'aliceblue': '#f0f8ff', 'darkgreen': '#006400',
 
 
 def main():
-    """Asks for a colour then prints its hexadecimal code."""
-    colour = str(input("Please enter a colour: "))
+    """Ask for a colour then print its hexadecimal code."""
+    colour = input("Please enter a colour: ")
     while colour != '':
         if colour.lower() in HEX_COLOURS:
             print("The code for {} is {}".format(colour, HEX_COLOURS[colour]))
         else:
             print("That colour isn't on the list!")
-        colour = str(input("Please enter a colour: "))
+        colour = input("Please enter a colour: ")
     print("Goodbye")
 
 
