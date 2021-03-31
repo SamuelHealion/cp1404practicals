@@ -15,10 +15,10 @@ def main():
         if correct_name.upper() != 'Y' and correct_name != '':
             name = input("Name: ").title()
 
-        saved_emails[name] = email
+        saved_emails[email] = name
         email = input("Email: ")
 
-    for name, email in saved_emails.items():
+    for email, name in saved_emails.items():
         print("{} ({})".format(name, email))
 
 
