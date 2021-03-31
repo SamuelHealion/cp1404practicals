@@ -7,7 +7,7 @@ the name of the user based off the email address
 
 def main():
     """Create a dictionary of user emails and names."""
-    saved_emails = {}
+    email_to_name = {}
     email = input("Email: ")
     while email != '':
         name = get_name(email)
@@ -15,10 +15,10 @@ def main():
         if correct_name.upper() != 'Y' and correct_name != '':
             name = input("Name: ").title()
 
-        saved_emails[email] = name
+        email_to_name[email] = name
         email = input("Email: ")
 
-    for email, name in saved_emails.items():
+    for email, name in email_to_name.items():
         print("{} ({})".format(name, email))
 
 
