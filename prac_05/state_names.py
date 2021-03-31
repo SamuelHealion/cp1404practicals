@@ -5,9 +5,9 @@ Reformatted to follow PEP 8 standards and displays all the states neatly
 """
 
 CODE_TO_NAME = {"QLD": "Queensland", "NSW": "New South Wales",
-               "NT": "Northern Territory", "WA": "Western Australia",
-               "ACT": "Australian Capital Territory", "VIC": "Victoria",
-               "TAS": "Tasmania"}
+                "NT": "Northern Territory", "WA": "Western Australia",
+                "ACT": "Australian Capital Territory", "VIC": "Victoria",
+                "TAS": "Tasmania"}
 
 for short_state, state in CODE_TO_NAME.items():
     print("{:3} is {}".format(short_state, state))
