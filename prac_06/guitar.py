@@ -18,7 +18,7 @@ class Guitar:
 
     def __str__(self):
         """Returns a string representation of a Guitar object."""
-        return "{} ({}) : ${:.2f}".format(self.name, self.year, self.cost)
+        return "{} ({}) : ${:,.2f}".format(self.name, self.year, self.cost)
 
     def get_age(self):
         """Returns the age of the guitar."""
