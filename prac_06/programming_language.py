@@ -16,13 +16,13 @@ class ProgrammingLanguage:
         self.year = year
 
     def is_dynamic(self):
-        """Returns whether a car is Dynamic or not."""
+        """Return whether a car is Dynamic or not."""
         if self.typing == "Dynamic":
             return True
         else:
             return False
 
     def __str__(self):
-        """Returns a string representation of a Programming Language."""
+        """Return a string representation of a Programming Language."""
         return "{}, {} Typing, Reflection={}, First appeared in {}".format(self.name, self.typing,
                                                                            self.reflection, self.year)
