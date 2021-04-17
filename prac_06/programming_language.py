@@ -5,7 +5,7 @@ Define the class ProgrammingLanguage
 
 
 class ProgrammingLanguage:
-    """Represents a Programming Language object."""
+    """Represent a Programming Language object."""
 
     def __init__(self, name='', typing='', reflection=bool, year=0):
         """Initialize a Programming Language instance."""
