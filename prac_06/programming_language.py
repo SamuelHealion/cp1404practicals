@@ -7,7 +7,7 @@ Define the class ProgrammingLanguage
 class ProgrammingLanguage:
     """Represent a Programming Language object."""
 
-    def __init__(self, name='', typing='', reflection=bool, year=0):
+    def __init__(self, name, typing, reflection, year):
         """Initialize a Programming Language instance."""
 
         self.name = name
@@ -17,10 +17,7 @@ class ProgrammingLanguage:
 
     def is_dynamic(self):
         """Return whether a car is Dynamic or not."""
-        if self.typing == "Dynamic":
-            return True
-        else:
-            return False
+        return self.typing == "Dynamic"
 
     def __str__(self):
         """Return a string representation of a Programming Language."""

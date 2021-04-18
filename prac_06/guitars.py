@@ -15,25 +15,25 @@ def main():
     while name != '':
         year = int(input("Year: "))
         cost = float(input("Cost: $"))
-        guitar = Guitar(name, year, cost)
-        print(guitar, "added.\n")
-        guitars.append(guitar)
+        new_guitar = Guitar(name, year, cost)
+        print(new_guitar, "added.\n")
+        guitars.append(new_guitar)
 
         name = input("Name: ")
 
-    # guitars.append(Guitar("Gibson L-5 CES", 1922, 16035.40))
-    # guitars.append(Guitar("Line 6 JTV-59", 2010, 1512.9))
+    guitars.append(Guitar("Gibson L-5 CES", 1922, 16035.40))
+    guitars.append(Guitar("Line 6 JTV-59", 2010, 1512.9))
 
     # Determine the maximum length of guitar name for string formatting
     max_length = max(len(guitar.name) for guitar in guitars)
 
     print("These are my guitars:")
-    for i, guitar in enumerate(guitars, 1):
+    for i, new_guitar in enumerate(guitars, 1):
         # Check to see if the guitar is vintage
-        vintage_string = '(vintage)' if guitar.is_vintage() else ''
+        vintage_string = '(vintage)' if new_guitar.is_vintage() else ''
 
         print("Guitar {}: {Guitar.name:{}} ({Guitar.year}), worth $ {Guitar.cost:10,.2f} {}"
-              .format(i, max_length, vintage_string, Guitar=guitar))
+              .format(i, max_length, vintage_string, Guitar=new_guitar))
 
 
 main()
