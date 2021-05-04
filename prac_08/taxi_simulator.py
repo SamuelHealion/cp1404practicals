@@ -24,11 +24,13 @@ def main():
             taxis_available(taxis)
             current_taxi = get_valid_taxi(taxis)
         elif choice.lower() == 'd':
-            if current_taxi:    # Check that the is a currently selected taxi
-                distance = get_valid_distance()
+            if current_taxi:    # Check that there is a currently selected taxi
                 if current_taxi.fuel == 0:
-                    print("Sorry, that taxi is all out of fuel. Please choose another")
+                    print("Sorry, that taxi is all out of fuel. Please choose another Taxi first.")
                 else:
+                    distance = get_valid_distance()
+                    # if distance != 0:
+                    # else:
                     current_taxi.start_fare()
                     current_taxi.drive(distance)
                     trip_fare = current_taxi.get_fare()
@@ -53,11 +55,16 @@ def taxis_available(taxis):
 
 def get_valid_distance():
     """Get a valid input for distance."""
-    try:
-        distance = int(input("Drive how far? "))
-    except ValueError:
-        print("Invalid distance")
-        distance = 0
+    valid_distance = False
+    while not valid_distance:
+        try:
+            distance = float(input("Drive how far? "))
+            if distance <= 0:
+                print("Invalid distance, please enter a distance greater than zero")
+            else:
+                valid_distance = True
+        except ValueError:
+            print("Invalid distance, please enter a number")
     return distance
 
 
