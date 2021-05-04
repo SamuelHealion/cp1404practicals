@@ -16,10 +16,10 @@ print("Automatic Password Generator")
 
 while not valid_password_length:
     password_length = int(input("How long do you need the password? "))
-    require_lower = str(input("Do you need lower case characters? Y/N ")).upper()
-    require_upper = str(input("Do you need upper case characters? Y/N ")).upper()
-    require_numeric = str(input("Do you need numeric characters? Y/N ")).upper()
-    require_special = str(input("Do you need special characters? Y/N ")).upper()
+    require_lower = input("Do you need lower case characters? Y/N ").upper()
+    require_upper = input("Do you need upper case characters? Y/N ").upper()
+    require_numeric = input("Do you need numeric characters? Y/N ").upper()
+    require_special = input("Do you need special characters? Y/N ").upper()
 
     min_length = 0
 
@@ -62,31 +62,23 @@ while len(password) < password_length:
             lower_flag = 1
         elif require_lower == 'Y' and upper_flag == 1 and numeric_flag == 1 and special_flag == 1:
             password += random.choice(LETTERS)
-        else:
-            pass
     elif choice == 1:
         if require_upper == 'Y' and upper_flag == 0:
             password += random.choice(LETTERS).upper()
             upper_flag = 1
         elif require_upper == 'Y' and lower_flag == 1 and numeric_flag == 1 and special_flag == 1:
             password += random.choice(LETTERS).upper()
-        else:
-            pass
     elif choice == 2:
         if require_numeric == 'Y' and numeric_flag == 0:
             password += random.choice(NUMBERS)
             numeric_flag = 1
         elif require_numeric == 'Y' and upper_flag == 1 and lower_flag == 1 and special_flag == 1:
             password += random.choice(NUMBERS)
-        else:
-            pass
     elif choice == 3:
         if require_special == 'Y' and special_flag == 0:
             password += random.choice(SPECIAL_CHARACTERS)
             special_flag = 1
         elif require_special == 'Y' and upper_flag == 1 and numeric_flag == 1 and lower_flag == 1:
             password += random.choice(SPECIAL_CHARACTERS)
-        else:
-            pass
 
 print(password)

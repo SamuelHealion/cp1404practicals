@@ -3,13 +3,11 @@ Three different ways to generate random Boolean
 """
 
 import random
-user_input = 0
 
+print("Press Q to quit")
+print("What random function do you want to run: A, B or C? ")
+user_input = str(input("> ")).upper()
 while user_input != 'Q':
-    print("Press Q to quit")
-    print("What random function do you want to run: A, B or C? ")
-    user_input = str(input("> ")).upper()
-
     if user_input == 'A':
         if random.randint(0, 1) == 0:
             print("False")
@@ -27,7 +25,8 @@ while user_input != 'Q':
             print("True")
         else:
             print("False")
-    elif user_input == 'Q':
-        pass
     else:
         print("Invalid choice")
+    print("Press Q to quit")
+    print("What random function do you want to run: A, B or C? ")
+    user_input = str(input("> ")).upper()

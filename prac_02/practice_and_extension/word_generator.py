@@ -78,7 +78,5 @@ while user_input != 'Q':
         second_version()
     elif user_input == '3':
         third_version()
-    elif user_input == 'Q':
-        pass
     else:
         print("Invalid option")
