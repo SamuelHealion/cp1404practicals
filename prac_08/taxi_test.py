@@ -7,6 +7,7 @@ from taxi import Taxi
 
 
 def main():
+    """Test the Taxi class."""
     prius = Taxi('Prius 1', 100)
     prius.drive(40)
     print(prius)

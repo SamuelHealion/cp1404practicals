@@ -7,6 +7,7 @@ from unreliable_car import UnreliableCar
 
 
 def main():
+    """Test the UnreliableCar class."""
     lemon = UnreliableCar('Bessy', 100, 50)
     print(lemon)
     lemon.drive(40)
