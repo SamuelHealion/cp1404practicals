@@ -1,0 +1,24 @@
+BoxLayout:
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'horizontal'
+        TextInput:
+            id: miles
+            font_size: 40
+            on_text: app.calculate_kilometers()
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_x: 0.25
+            Button:
+                text: 'Up'
+                on_press: app.handle_increment(1.0)
+            Button:
+                text: 'Down'
+                on_press: app.handle_increment(-1.0)
+#    Button:
+#        text: 'Convert miles to kilometers'
+#        on_press: app.calculate_kilometers()
+    Label:
+        text: app.kilometers
+        color: ('yellow')
+        font_size: 40
