@@ -25,12 +25,10 @@ def main():
             current_taxi = get_valid_taxi(taxis)
         elif choice.lower() == 'd':
             if current_taxi:    # Check that there is a currently selected taxi
-                if current_taxi.fuel == 0:
+                if current_taxi.fuel == 0:  # Check if the selected taxi is out of fuel
                     print("Sorry, that taxi is all out of fuel. Please choose another Taxi first.")
                 else:
                     distance = get_valid_distance()
-                    # if distance != 0:
-                    # else:
                     current_taxi.start_fare()
                     current_taxi.drive(distance)
                     trip_fare = current_taxi.get_fare()
