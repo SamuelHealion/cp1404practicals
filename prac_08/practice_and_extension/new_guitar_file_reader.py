@@ -1,6 +1,6 @@
 """
 CP1404 Practical 8 - Practice and Extension
-New version of guitar fill reader that makes use of the Guitar class
+New version of guitar file reader that makes use of the Guitar class
 """
 
 from guitar import Guitar
