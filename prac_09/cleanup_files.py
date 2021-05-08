@@ -17,10 +17,10 @@ def main():
     print("Files in {}:\n{}\n".format(os.getcwd(), os.listdir('.')))
 
     # Make a new directory
-    try:
-        os.mkdir('temp')
-    except FileExistsError:
-        pass
+    # try:
+    #     os.mkdir('temp')
+    # except FileExistsError:
+    #     pass
 
     # Loop through each file in the (current) directory
     for filename in os.listdir('.'):
@@ -31,13 +31,24 @@ def main():
         new_name = get_fixed_filename(filename)
         print("Renaming {} to {}".format(filename, new_name))
 
-        os.rename(filename, new_name)
+        # os.rename(filename, new_name)
 
 
 def get_fixed_filename(filename):
     """Return a 'fixed' version of filename."""
     new_name = filename.replace(" ", "_").replace(".TXT", ".txt")
-    return new_name
+    newer_name = ''
+    for i, char in enumerate(new_name):
+        try:
+            if new_name[i].islower() and new_name[i + 1].isupper():
+                newer_name += char + '_'
+            elif new_name[i].isupper() and new_name[i + 1].isupper():
+                newer_name += char + '_'
+            else:
+                newer_name += char
+        except IndexError:
+            newer_name += char
+    return newer_name.title()
 
 
 def demo_walk():
