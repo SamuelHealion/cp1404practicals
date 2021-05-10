@@ -36,19 +36,18 @@ def main():
 
 def get_fixed_filename(filename):
     """Return a 'fixed' version of filename."""
-    new_name = filename.replace(" ", "_").replace(".TXT", ".txt")
-    newer_name = ''
-    for i, char in enumerate(new_name):
-        try:
-            if new_name[i].islower() and new_name[i + 1].isupper():
-                newer_name += char + '_'
-            elif new_name[i].isupper() and new_name[i + 1].isupper():
-                newer_name += char + '_'
-            else:
-                newer_name += char
-        except IndexError:
-            newer_name += char
-    return newer_name.title()
+    replaced_name = filename.replace(" ", "_").replace(".TXT", ".txt")
+    new_name = ''
+    for i, char in enumerate(replaced_name):
+        if replaced_name[i - 1].islower() and replaced_name[i].isupper() and i != 0:
+            new_name += '_' + char
+        elif replaced_name[i - 1].isupper() and replaced_name[i].isupper():
+            new_name += '_' + char
+        elif replaced_name[i - 1] == '_':
+            new_name += char.upper()
+        else:
+            new_name += char
+    return new_name
 
 
 def demo_walk():
