@@ -9,16 +9,17 @@ import shutil
 
 def main():
     """Sort files by their extension."""
+    extensions = []
+
     os.chdir('FilesToSort')
     files = os.listdir('.')
 
     for file in files:
         extension = file.split('.')[-1]
-        try:
+        if extension not in extensions:
             os.mkdir(extension)
-            shutil.move(file, extension)
-        except FileExistsError:
-            shutil.move(file, extension)
+            extensions.append(extension)
+        shutil.move(file, extension)
 
 
 if __name__ == '__main__':
