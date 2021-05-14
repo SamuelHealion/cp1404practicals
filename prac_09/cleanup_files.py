@@ -1,68 +1,40 @@
 """
-CP1404/CP5632 Practical
-Demos of various os module examples
+CP1404 Practical 9 - Files and Exceptions
+Practice using os modules to change filenames
 """
-import shutil
 import os
 
 
 def main():
-    """Demo os module functions."""
-    print("Starting directory is: {}".format(os.getcwd()))
+    """Cleanup filenames for songs to a consistent format."""
 
-    # Change to desired directory
-    os.chdir('Lyrics/Christmas')
-
-    # Print a list of all files in current directory
-    print("Files in {}:\n{}\n".format(os.getcwd(), os.listdir('.')))
-
-    # Make a new directory
-    # try:
-    #     os.mkdir('temp')
-    # except FileExistsError:
-    #     pass
-
-    # Loop through each file in the (current) directory
-    for filename in os.listdir('.'):
-        # Ignore directories, just process files
-        if os.path.isdir(filename):
-            continue
-
-        new_name = get_fixed_filename(filename)
-        print("Renaming {} to {}".format(filename, new_name))
-
-        # os.rename(filename, new_name)
+    os.chdir('Lyrics')
+    for directory_name, subdirectories, filenames in os.walk('.'):
+        for filename in filenames:
+            new_name = get_fixed_filename(filename)
+            print("Changing {} to {}".format(filename, new_name))
+            os.rename(os.path.join(directory_name, filename), os.path.join(directory_name, new_name))
 
 
 def get_fixed_filename(filename):
     """Return a 'fixed' version of filename."""
-    replaced_name = filename.replace(" ", "_").replace(".TXT", ".txt")
     new_name = ''
-    for i, char in enumerate(replaced_name):
-        if replaced_name[i - 1].islower() and replaced_name[i].isupper() and i != 0:
-            new_name += '_' + char
-        elif replaced_name[i - 1].isupper() and replaced_name[i].isupper():
-            new_name += '_' + char
-        elif replaced_name[i - 1] == '_':
-            new_name += char.upper()
-        else:
+    for i, char in enumerate(filename):
+        try:
+            if filename[i].islower() and filename[i+1].isupper():
+                # When the next character is a capital
+                new_name += char + '_'
+            elif filename[i].isupper() and filename[i+1].isupper():
+                # When two capitals are next to each other
+                new_name += char + '_'
+            elif filename[i-1] == ' ':
+                # Capitalise all characters after a space
+                new_name += char.upper()
+            else:
+                new_name += char
+        except IndexError:  # Handle when filename[i+1] is past the end of the string
             new_name += char
-    return new_name
-
-
-def demo_walk():
-    """Process all subdirectories using os.walk()."""
-    os.chdir('Lyrics')
-    for directory_name, subdirectories, filenames in os.walk('.'):
-        print("Directory:", directory_name)
-        print("\tcontains subdirectories:", subdirectories)
-        print("\tand files:", filenames)
-        print("(Current working directory is: {})".format(os.getcwd()))
-
-        for filename in filenames:
-            new_name = get_fixed_filename(filename)
-            os.rename(os.path.join(directory_name, filename), os.path.join(directory_name, new_name))
+    return new_name.replace(" ", "_").replace(".T_X_T", ".txt")
 
 
 main()
-# demo_walk()
