@@ -12,7 +12,7 @@ def main():
     user_input = input(">>> ")
     while not user_input == '':
         try:
-            wiki_page = wikipedia.page(user_input)
+            wiki_page = wikipedia.page(user_input, auto_suggest=False)
             print(wiki_page.title)
             print(wiki_page.url)
             print(wiki_page.summary)
@@ -23,7 +23,6 @@ def main():
             print(e.options)
         print("Please enter a search phrase for Wikipedia")
         user_input = input(">>> ")
-
 
 
 if __name__ == '__main__':
